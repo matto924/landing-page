@@ -2,27 +2,48 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{% block title%}Your amazing landing page{% endblock %}</title>
+        <title>Eatobot - Discover new places to eat - on a budget!</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+
     </head>
 
     <body>
         {% include 'includes/flash_message.html' %}
-        <p>Hello! Enter your email below to sign up.</p>
-        <form action="{{ url_for('index') }}" method="post" accept-charset="utf-8">
-                {{ form.hidden_tag() }}
-                <div class="control-label">{{ form.email.label }}</div>
-                <div class="controls">
-                    {{ form.email|safe }}
-                    {% if form.email.errors %}
-                    <ul class="errors">
-                        {% for error in form.email.errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </div>
-                <input type="submit" value="Sign up" />
-        </form>
+        <div class = "container">
+			<div class="page-header">
+				<h3 class="muted">Eatobot</h3>
+				<h1> Discover new places to eat <small> - on a budget!</small></h1>
+			</div>
+			<hr>
+			<p>Over the course of our lives, we have been asked more often than not the question: “Where do we eat?” This is usually a tricky question, since it involves a lot of factors such as budget, food served, etc
+			<br>
+			Let Eatobot help you decide where to eat according to your budget. With a simple search, input your preferred budget, and Eatobot will search the nearest restaurants from your location that fit your budget range, and bring them right into your smartphones. </p>
+			<div class="hero-unit">
+			<h1>Cool! Awesome! Where is it?</h1>
+			<p>Eatobot is currently in development.</p>
+			<p>Enter your email address below to be updated with Eatobot news!</p>
+			<form action="{{ url_for('index') }}" method="post" accept-charset="utf-8">
+					{{ form.hidden_tag() }}
+					<div class="control-label">{{ form.email.label }}</div>
+					<div class="controls">
+						{{ form.email|safe }}
+						{% if form.email.errors %}
+						<ul class="errors">
+							{% for error in form.email.errors %}
+							<li>{{ error }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+					</div>
+					<a class="btn btn-large btn-success" href="#">Sign up today</a>
+					<input type="submit" value="Sign up" />
+			</form>
+			</div>
+			<hr>
+	<div class="footer">
+        <p>&copy; RMKB 2013</p>
+      </div>
+		
     </body>
 </html>
 
